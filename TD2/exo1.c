@@ -10,8 +10,7 @@ int main(int argc, char const *argv[]) {
     int fichier2;
     char buffer[TAILLE];
 
-    fichier1 = open("test1.txt", O_RDONLY);
-    if (fichier1 < 0) {
+    if ((fichier1 = open("test1.txt", O_RDONLY)) < 0) {
         printf("Erreur ouverture fichier 1\n");
         return EXIT_FAILURE;
     }
