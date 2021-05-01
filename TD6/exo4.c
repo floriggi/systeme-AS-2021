@@ -49,6 +49,7 @@ int main(int argc, char const *argv[]) {
 
     free(donnees.tab);
     donnees.tab = NULL;
+    pthread_mutex_destroy(&verrou);
 
     return EXIT_SUCCESS;
 }

@@ -66,6 +66,8 @@ int main(int argc, char const *argv[]) {
     printf("Tableau après le tri\n");
     afficherTableau(&structure);
 
+    pthread_mutex_destroy(&mutex);
+
     return EXIT_SUCCESS;
 }
 

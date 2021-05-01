@@ -4,7 +4,6 @@
 #include <time.h>
 #include <unistd.h>
 
-#define MAX_TOUR 9
 #define NB_THREADS 10
 #define NB_MIN 0
 #define NB_SECONDES 8
@@ -19,7 +18,7 @@ pthread_mutex_t mutexCompteur;
 pthread_mutex_t mutexTableau;
 int compteur = 1;
 
-int randomNumber(const int max);
+int randomNumber(int max);
 void creerTableau(Variables *structure);
 void *fonctionPourThread(void *arg);
 
@@ -52,10 +51,11 @@ int main(int argc, char const *argv[]) {
     }
 
     free(my_thread);
-    my_thread = NULL;
-
     free(donnees.tableau);
     donnees.tableau = NULL;
+
+    pthread_mutex_destroy(&mutexTableau);
+    pthread_mutex_destroy(&mutexCompteur);
 
     return EXIT_SUCCESS;
 }
